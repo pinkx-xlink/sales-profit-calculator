@@ -5,7 +5,9 @@ body {
     align-items: center;
     color: white;
 }
-
+#container {
+    display: flex;
+}
 #input-field {
     display: flex;
     flex-direction: column;
