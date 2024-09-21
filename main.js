@@ -7,11 +7,10 @@ function getHourlyRateInput() {
     const hourlyRateInput = document.getElementById('labor-hourly-rate').value;
     return hourlyRateInput;
 }
-class GetLaborRate {
+class GetPrice {
     constructor(laborHoursInput, hourlyRateInput) {
         this.laborHoursInput = getLaborHoursInput();
         this.hourlyRateInput = getHourlyRateInput();
-        // this.totalLaborRate = laborHoursInput * hourlyRateInput;
     }
     getTotalLaborRate() {
         const totalLaborRate = this.laborHoursInput * this.hourlyRateInput;
@@ -22,6 +21,6 @@ class GetLaborRate {
 
 document.getElementById('submit-btn').addEventListener("click", function (event) {
     event.preventDefault();
-    const newRate = new GetLaborRate();
+    const newRate = new GetPrice();
     newRate.getTotalLaborRate();
 });
