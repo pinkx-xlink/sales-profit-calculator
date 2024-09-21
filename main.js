@@ -9,7 +9,6 @@ function getHourlyRateInput() {
 }
 function getMaterialsCostInput() {
     const materialsCostInput = document.getElementById('materials-cost').value;
-    // const num1 = materialsCostInput.Number();
     return Number(materialsCostInput);
 }
 function getShippingCostInput() {
@@ -36,8 +35,6 @@ class GetPrice {
         return Number(totalLaborRate);
     }
     getTotalExpenses() {
-        //const materialsCost = this.materialsCostInput;
-        //const shippingCost = this.shippingCostInput;
         const totalExpenses = this.materialsCostInput + this.shippingCostInput;
         labor.innerHTML += `<p>Total expenses: $${this.materialsCostInput} in materials + $${this.shippingCostInput} in shipping = $${totalExpenses}.</p>`
         return Number(totalExpenses);
