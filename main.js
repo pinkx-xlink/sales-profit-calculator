@@ -1,4 +1,3 @@
-console.log('is this thing on')
 const labor = document.getElementById('labor');
 function getLaborHoursInput() {
     const laborHoursInput = document.getElementById('labor-hours').value;
@@ -16,7 +15,6 @@ class GetLaborRate {
     }
     getTotalLaborRate() {
         const totalLaborRate = this.laborHoursInput * this.hourlyRateInput;
-        console.log(`Total labor rate: ${this.laborHoursInput} hours at $${this.hourlyRateInput}/hour = $${totalLaborRate}.`);
         labor.innerHTML += `<p>Total labor rate: ${this.laborHoursInput} hours at $${this.hourlyRateInput}/hour = $${totalLaborRate}.</p>`
         return totalLaborRate;
     }
@@ -25,7 +23,5 @@ class GetLaborRate {
 document.getElementById('submit-btn').addEventListener("click", function (event) {
     event.preventDefault();
     const newRate = new GetLaborRate();
-    console.log(newRate.getTotalLaborRate());
+    newRate.getTotalLaborRate();
 });
-
-// console.log(getLaborRate(laborHoursInput, totalLaborRate));
