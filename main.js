@@ -63,6 +63,6 @@ document.getElementById('submit-btn').addEventListener("click", function (event)
   const newRate = new GetPrice();
   // newRate.getTotalLaborRate();
   // newRate.getTotalExpenses();
-  newRate.getPreSalesTaxPrice();
+  // newRate.getPreSalesTaxPrice();
   newRate.applySalesTax();
 });
