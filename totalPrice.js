@@ -10,4 +10,7 @@ submitBtn.addEventListener('click', function () {
     console.log(laborRateInput);
 })
 
-// function getTotalExpenses() {}
+function getTotalPrice() {
+    console.log('hi');
+    return 'hi';
+}
