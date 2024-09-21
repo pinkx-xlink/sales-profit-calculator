@@ -1,4 +1,5 @@
 function getLaborRate(hoursOfLabor, hourlyRate) {
-  return hoursOfLabor * hourlyRate;
+  const totalLaborRate = hoursOfLabor * hourlyRate;
+  return totalLaborRate;
 }
 module.exports = getLaborRate;
