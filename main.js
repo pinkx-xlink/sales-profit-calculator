@@ -7,10 +7,15 @@ function getHourlyRateInput() {
     const hourlyRateInput = document.getElementById('labor-hourly-rate').value;
     return hourlyRateInput;
 }
+function getMaterialsCost() {
+    const materialsCostInput = document.getElementById('materials-cost').value;
+    return materialsCostInput;
+}
 class GetPrice {
-    constructor(laborHoursInput, hourlyRateInput) {
+    constructor(laborHoursInput, hourlyRateInput, materialsCostInput) {
         this.laborHoursInput = getLaborHoursInput();
         this.hourlyRateInput = getHourlyRateInput();
+        this.materialsCostInput = getMaterialsCost();
     }
     getTotalLaborRate() {
         const totalLaborRate = this.laborHoursInput * this.hourlyRateInput;
