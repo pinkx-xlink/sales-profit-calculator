@@ -1,5 +1,5 @@
 console.log('is this thing on')
-
+const labor = document.getElementById('labor');
 function getLaborHoursInput() {
     const laborHoursInput = document.getElementById('labor-hours').value;
     return laborHoursInput;
@@ -17,6 +17,7 @@ class GetLaborRate {
     getTotalLaborRate() {
         const totalLaborRate = this.laborHoursInput * this.hourlyRateInput;
         console.log(`Total labor rate: ${this.laborHoursInput} hours at $${this.hourlyRateInput}/hour = $${totalLaborRate}.`);
+        labor.innerHTML += `<p>Total labor rate: ${this.laborHoursInput} hours at $${this.hourlyRateInput}/hour = $${totalLaborRate}.</p>`
         return totalLaborRate;
     }
 }
