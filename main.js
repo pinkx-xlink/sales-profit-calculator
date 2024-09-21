@@ -37,21 +37,25 @@ class GetPrice {
     this.totalPricePreSalesTax = this.getPreSalesTaxPrice();
     this.totalPriceWithSalesTaxAddedOn = this.applySalesTax();
   }
+
   getTotalLaborRate() {
     const totalLaborRate = this.laborHoursInput * this.hourlyRateInput;
     labor.innerHTML += `<p>Total labor rate: ${this.laborHoursInput} hours at $${this.hourlyRateInput}/hour = $${totalLaborRate}.</p>`
     return Number(totalLaborRate);
   }
+
   getTotalExpenses() {
     const totalExpenses = this.materialsCostInput + this.shippingCostInput;
     expenses.innerHTML += `<p>Total expenses: $${this.materialsCostInput} in materials + $${this.shippingCostInput} in shipping = $${totalExpenses}.</p>`
     return Number(totalExpenses);
   }
+
   getPreSalesTaxPrice() {
     const totalPricePreSalesTax = this.totalLaborRate + this.totalExpenses;
     preTax.innerHTML += `<p>Total pre sales tax price: $${totalPricePreSalesTax}</p>`;
     return Number(totalPricePreSalesTax);
   }
+
   applySalesTax() {
     const totalPriceWithSalesTaxAddedOn = ((this.totalPricePreSalesTax * this.salesTaxInput) + this.totalPricePreSalesTax);
     postTax.innerHTML += `<p>Total price, adding sales tax on : $${totalPriceWithSalesTaxAddedOn}</p>`
