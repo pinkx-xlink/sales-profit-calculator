@@ -25,7 +25,7 @@ function getSalesTaxInput() {
 }
 
 class GetPrice {
-  constructor(laborHoursInput, hourlyRateInput, materialsCostInput, shippingCostInput, totalLaborRate, totalExpenses, salesTaxInput) {
+  constructor(laborHoursInput, hourlyRateInput, materialsCostInput, shippingCostInput, totalLaborRate, totalExpenses, salesTaxInput, totalPricePreSalesTax) {
     this.laborHoursInput = getLaborHoursInput();
     this.hourlyRateInput = getHourlyRateInput();
     this.materialsCostInput = getMaterialsCostInput();
@@ -33,6 +33,7 @@ class GetPrice {
     this.salesTaxInput = getSalesTaxInput();
     this.totalLaborRate = this.getTotalLaborRate();
     this.totalExpenses = this.getTotalExpenses();
+    this.totalPricePreSalesTax = this.getPreSalesTaxPrice();
   }
   getTotalLaborRate() {
     const totalLaborRate = this.laborHoursInput * this.hourlyRateInput;
@@ -50,8 +51,9 @@ class GetPrice {
     return Number(totalPricePreSalesTax);
   }
   applySalesTax() {
-    const totalPriceWithSalesTaxAddedOn = ((this.totalPricePreSalesTax) * this.salesTaxInput) + this.totalPricePreSalesTax;
+    const totalPriceWithSalesTaxAddedOn = ((this.totalPricePreSalesTax * this.salesTaxInput) + this.totalPricePreSalesTax);
     postTax.innerHTML += `<p>Total price, adding sales tax on : $${totalPriceWithSalesTaxAddedOn}</p>`
+    console.log(totalPriceWithSalesTaxAddedOn)
     return Number(totalPriceWithSalesTaxAddedOn);
   }
 }
