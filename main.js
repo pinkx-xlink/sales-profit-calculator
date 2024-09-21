@@ -2,6 +2,7 @@ const labor = document.getElementById('labor');
 const expenses = document.getElementById('expenses');
 const preTax = document.getElementById('pre-tax');
 const postTax = document.getElementById('post-tax');
+const totalPrice = document.getElementById('total-price');
 
 function getLaborHoursInput() {
   const laborHoursInput = document.getElementById('labor-hours').value;
@@ -25,7 +26,7 @@ function getSalesTaxInput() {
 }
 
 class GetPrice {
-  constructor(laborHoursInput, hourlyRateInput, materialsCostInput, shippingCostInput, totalLaborRate, totalExpenses, salesTaxInput, totalPricePreSalesTax) {
+  constructor(laborHoursInput, hourlyRateInput, materialsCostInput, shippingCostInput, totalLaborRate, totalExpenses, salesTaxInput, totalPricePreSalesTax, totalPriceWithSalesTaxAddedOn) {
     this.laborHoursInput = getLaborHoursInput();
     this.hourlyRateInput = getHourlyRateInput();
     this.materialsCostInput = getMaterialsCostInput();
@@ -34,6 +35,7 @@ class GetPrice {
     this.totalLaborRate = this.getTotalLaborRate();
     this.totalExpenses = this.getTotalExpenses();
     this.totalPricePreSalesTax = this.getPreSalesTaxPrice();
+    this.totalPriceWithSalesTaxAddedOn = this.applySalesTax();
   }
   getTotalLaborRate() {
     const totalLaborRate = this.laborHoursInput * this.hourlyRateInput;
@@ -64,5 +66,9 @@ document.getElementById('submit-btn').addEventListener("click", function (event)
   // newRate.getTotalLaborRate();
   // newRate.getTotalExpenses();
   // newRate.getPreSalesTaxPrice();
-  newRate.applySalesTax();
+  // newRate.applySalesTax();
+  totalPrice.innerHTML += `<p>To earn a profit of 
+  $${newRate.totalLaborRate} for this product, you will 
+  need to charge $${newRate.totalPriceWithSalesTaxAddedOn} 
+  total to account for shipping, materials, and sales taxes.</p>`;
 });
