@@ -1,12 +1,11 @@
-const laborRateInputField = document.getElementById('labor-hours').value;
-const laborRateInput = laborRateInputField;
-
-const submitBtn = document.getElementById('submit');
-submitBtn.addEventListener('click', function () {
-    console.log(laborRateInput);
+const submitBtn = document.getElementById('submit-btn');
+submitBtn.addEventListener('submit', function (event) {
+    console.log('blah');
 })
 
-function getTotalPrice() {
-    console.log('hi');
-    return 'hi';
+console.log('is this thing on')
+
+function getLaborHoursInput() {
+    const laborRateInput = document.getElementById('labor-hours').value;
+    return laborRateInput;
 }
