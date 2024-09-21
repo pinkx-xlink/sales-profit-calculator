@@ -1,4 +1,5 @@
 function getExpenses(materialsCost, shippingCost) {
-  return materialsCost + shippingCost;
+  const totalExpenses = materialsCost + shippingCost;
+  return totalExpenses;
 };
 module.exports = getExpenses;
