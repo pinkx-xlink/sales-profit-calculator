@@ -7,6 +7,9 @@ body {
     margin: 20px;
     font-family: 'Lora', sans-serif;
 }
+h1 {
+    font-style: italic;
+}
 #container {
     display: flex;
     height: 350px;
@@ -17,6 +20,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
 }
 input {
     width: 100px;
