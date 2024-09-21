@@ -21,11 +21,12 @@ function getSalesTaxInput() {
 }
 
 class GetPrice {
-  constructor(laborHoursInput, hourlyRateInput, materialsCostInput, shippingCostInput, totalLaborRate, totalExpenses) {
+  constructor(laborHoursInput, hourlyRateInput, materialsCostInput, shippingCostInput, totalLaborRate, totalExpenses, salesTaxInput) {
     this.laborHoursInput = getLaborHoursInput();
     this.hourlyRateInput = getHourlyRateInput();
     this.materialsCostInput = getMaterialsCostInput();
     this.shippingCostInput = getShippingCostInput();
+    this.salesTaxInput = getSalesTaxInput();
     this.totalLaborRate = this.getTotalLaborRate();
     this.totalExpenses = this.getTotalExpenses();
   }
@@ -41,12 +42,12 @@ class GetPrice {
   }
   getPreSalesTaxPrice() {
     const totalPricePreSalesTax = this.totalLaborRate + this.totalExpenses;
-    console.log(totalPricePreSalesTax)
     labor.innerHTML += `<p>Total pre sales tax price: $${totalPricePreSalesTax}</p>`;
     return Number(totalPricePreSalesTax);
   }
   applySalesTax() {
-    const totalPriceWithSalesTaxAddedOn = ((totalPricePreSalesTax) * salesTaxInput) + totalPricePreSalesTax;
+    const totalPriceWithSalesTaxAddedOn = ((this.totalPricePreSalesTax) * this.salesTaxInput) + this.totalPricePreSalesTax;
+    labor.innerHTML += `<p>Total price, adding sales tax on : $${totalPriceWithSalesTaxAddedOn}</p>`
     return Number(totalPriceWithSalesTaxAddedOn);
   }
 }
@@ -54,7 +55,8 @@ class GetPrice {
 document.getElementById('submit-btn').addEventListener("click", function (event) {
   event.preventDefault();
   const newRate = new GetPrice();
-  newRate.getTotalLaborRate();
-  newRate.getTotalExpenses();
+  // newRate.getTotalLaborRate();
+  // newRate.getTotalExpenses();
   newRate.getPreSalesTaxPrice();
+  newRate.applySalesTax();
 });
