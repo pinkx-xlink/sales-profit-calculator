@@ -1,5 +1,5 @@
 const laborRate = require('./laborRate');
 const getExpenses = require('./getExpenses');
-function getSalesTax(getExpenses, salesTax) {
+function getSalesTax(getExpenses, totalLaborRate, salesTax) {
 
 }
