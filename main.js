@@ -1,4 +1,8 @@
 const labor = document.getElementById('labor');
+const expenses = document.getElementById('expenses');
+const preTax = document.getElementById('pre-tax');
+const postTax = document.getElementById('post-tax');
+
 function getLaborHoursInput() {
   const laborHoursInput = document.getElementById('labor-hours').value;
   return Number(laborHoursInput);
