@@ -62,11 +62,6 @@ class GetPrice {
 
 document.getElementById('submit-btn').addEventListener("click", function (event) {
   event.preventDefault();
-  const newRate = new GetPrice();
-  // newRate.getTotalLaborRate();
-  // newRate.getTotalExpenses();
-  // newRate.getPreSalesTaxPrice();
-  // newRate.applySalesTax();
   totalPrice.innerHTML += `<p>To earn a profit of 
   $${newRate.totalLaborRate} for this product, you will 
   need to charge $${newRate.totalPriceWithSalesTaxAddedOn} 
