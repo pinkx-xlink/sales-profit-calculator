@@ -5,7 +5,7 @@ body {
     align-items: center;
     color: white;
     margin: 20px;
-    font-family: ;
+    font-family: 'Lora', sans-serif;
 }
 #container {
     display: flex;
