@@ -16,6 +16,7 @@ class GetLaborRate {
     }
     getTotalLaborRate() {
         const totalLaborRate = this.laborHoursInput * this.hourlyRateInput;
+        console.log(`Total labor rate: ${this.laborHoursInput} hours at $${this.hourlyRateInput}/hour = $${totalLaborRate}.`);
         return totalLaborRate;
     }
 }
