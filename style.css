@@ -22,6 +22,11 @@ h1 {
     justify-content: space-between;
     align-items: center;
 }
+#materials-pricing-field {
+    display: flex;
+    flex-direction: column;
+    height: 10%;
+}
 input {
     width: 100px;
 }
