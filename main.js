@@ -67,9 +67,16 @@ class GetPrice {
 }
 
 const addMaterialsBtn = document.getElementById('add-materials-btn');
+const materialsName = document.getElementById('materials-name');
+const materialsNameLabel = document.getElementById('materials-name-label');
+const materialsPrice = document.getElementById('materials-price');
+const materialsPriceLabel = document.getElementById('materials-price-label');
 addMaterialsBtn.addEventListener('click', function (event) {
   event.preventDefault();
-  
+  materialsName.hidden = false;
+  materialsNameLabel.hidden = false;
+  materialsPrice.hidden = false;
+  materialsPriceLabel.hidden = false;
 });
 
 document.getElementById('submit-btn').addEventListener("click", function (event) {
