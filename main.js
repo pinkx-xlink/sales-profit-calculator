@@ -4,6 +4,15 @@ const preTax = document.getElementById('pre-tax');
 const postTax = document.getElementById('post-tax');
 const totalPrice = document.getElementById('total-price');
 
+const taxRates = {
+  AL: 4.00,
+  AK: 0.00,
+  AZ: 5.60,
+  AR: 6.50,
+  CA: 7.25,
+  // Add all other states and their tax rates here
+};
+
 function getLaborHoursInput() {
   const laborHoursInput = document.getElementById('labor-hours').value;
   return Number(laborHoursInput);
@@ -20,22 +29,23 @@ function getShippingCostInput() {
   const shippingCostInput = document.getElementById('shipping-cost').value;
   return Number(shippingCostInput);
 }
-function getSalesTaxInput() {
-  const salesTaxInput = document.getElementById('sales-tax').value;
-  return Number(salesTaxInput);
-}
+// function getSalesTaxInput() {
+//   const salesTaxInput = document.getElementById('sales-tax').value;
+//   return Number(salesTaxInput);
+// }
 
 class GetPrice {
-  constructor(laborHoursInput, hourlyRateInput, materialsCostInput, shippingCostInput, totalLaborRate, totalExpenses, salesTaxInput, totalPricePreSalesTax, totalPriceWithSalesTaxAddedOn) {
+  constructor(laborHoursInput, hourlyRateInput, materialsCostInput, shippingCostInput, totalLaborRate, totalExpenses, salesTaxInput, totalPricePreSalesTax, rate, totalPriceWithSalesTaxAddedOn) {
     this.laborHoursInput = getLaborHoursInput();
     this.hourlyRateInput = getHourlyRateInput();
     this.materialsCostInput = getMaterialsCostInput();
     this.shippingCostInput = getShippingCostInput();
-    this.salesTaxInput = getSalesTaxInput();
+    //this.salesTaxInput = getSalesTaxInput();
     this.totalLaborRate = this.getTotalLaborRate();
     this.totalExpenses = this.getTotalExpenses();
     this.totalPricePreSalesTax = this.getPreSalesTaxPrice();
     this.totalPriceWithSalesTaxAddedOn = this.applySalesTax();
+    this.rate = this.applySalesTax();
   }
 
   getTotalLaborRate() {
@@ -58,8 +68,12 @@ class GetPrice {
     return Number(totalPricePreSalesTax);
   }
 
+
+  
   applySalesTax() {
-    const totalPriceWithSalesTaxAddedOn = ((this.totalPricePreSalesTax * this.salesTaxInput) + this.totalPricePreSalesTax);
+    const state = document.getElementById('states').value;
+    const rate = this.taxRates[state];
+    const totalPriceWithSalesTaxAddedOn = ((this.totalPricePreSalesTax * rate) + this.totalPricePreSalesTax);
     postTax.innerHTML += `<p>Total price, adding sales tax on : $${totalPriceWithSalesTaxAddedOn}</p>`
     console.log(totalPriceWithSalesTaxAddedOn)
     return Number(totalPriceWithSalesTaxAddedOn);
