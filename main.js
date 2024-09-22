@@ -71,12 +71,18 @@ const materialsName = document.getElementById('materials-name');
 const materialsNameLabel = document.getElementById('materials-name-label');
 const materialsPrice = document.getElementById('materials-price');
 const materialsPriceLabel = document.getElementById('materials-price-label');
+const submitMaterialsBtn = document.getElementById('submit-materials-btn');
+submitMaterialsBtn.addEventListener('click', function (event) {
+  event.preventDefault();
+})
+
 addMaterialsBtn.addEventListener('click', function (event) {
   event.preventDefault();
   materialsName.hidden = false;
   materialsNameLabel.hidden = false;
   materialsPrice.hidden = false;
   materialsPriceLabel.hidden = false;
+  submitMaterialsBtn.hidden = false;
 });
 
 document.getElementById('submit-btn').addEventListener("click", function (event) {
