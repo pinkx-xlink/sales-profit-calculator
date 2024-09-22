@@ -99,3 +99,5 @@ document.getElementById('submit-btn').addEventListener("click", function (event)
   need to charge $${newRate.totalPriceWithSalesTaxAddedOn} 
   total to account for shipping, materials, and sales taxes.</p>`;
 });
+
+
