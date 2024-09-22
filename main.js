@@ -44,6 +44,8 @@ class GetPrice {
     return Number(totalLaborRate);
   }
 
+  
+
   getTotalExpenses() {
     const totalExpenses = this.materialsCostInput + this.shippingCostInput;
     expenses.innerHTML += `<p>Total expenses: $${this.materialsCostInput} in materials + $${this.shippingCostInput} in shipping = $${totalExpenses}.</p>`
@@ -63,6 +65,12 @@ class GetPrice {
     return Number(totalPriceWithSalesTaxAddedOn);
   }
 }
+
+const addMaterialsBtn = document.getElementById('add-materials-btn');
+addMaterialsBtn.addEventListener('click', function (event) {
+  event.preventDefault();
+  
+});
 
 document.getElementById('submit-btn').addEventListener("click", function (event) {
   event.preventDefault();
