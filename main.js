@@ -72,8 +72,14 @@ const materialsNameLabel = document.getElementById('materials-name-label');
 const materialsPrice = document.getElementById('materials-price');
 const materialsPriceLabel = document.getElementById('materials-price-label');
 const submitMaterialsBtn = document.getElementById('submit-materials-btn');
+
+// make a constructor that takes the materials
+// product + price, creates a new item, 
+// and then totals all the prices up.
+const currentPrice = document.getElementById('current-price');
 submitMaterialsBtn.addEventListener('click', function (event) {
   event.preventDefault();
+  // currentPrice.innerHTML += 
 })
 
 addMaterialsBtn.addEventListener('click', function (event) {
