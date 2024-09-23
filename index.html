@@ -30,7 +30,7 @@
             <input type="number" id="sales-tax" name="sales-tax"> -->
     
             <label for="states">State:</label>
-            <select id="states" onchange="applySalesTax">
+            <select id="states" onchange="showTaxRate()">
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
                 <option value="AZ">Arizona</option>
@@ -38,6 +38,7 @@
                 <option value="CA">California</option>
             </select>
             <button id="submit-btn">Submit</button>
+            <p id="taxRate"></p>
         </form>
 
         <form id="materials-pricing-field">

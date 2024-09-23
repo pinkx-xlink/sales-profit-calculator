@@ -13,6 +13,15 @@ const taxRates = {
   // Add all other states and their tax rates here
 };
 
+function showTaxRate() {
+  // const state = document.getElementById('states').value;
+  //  const rate = this.taxRates[state];
+  const state = document.getElementById("states").value;
+  const rate = taxRates[state];
+  document.getElementById("taxRate").innerText = `Sales Tax Rate: ${rate}%`;
+  return Number(rate);
+}
+
 function getLaborHoursInput() {
   const laborHoursInput = document.getElementById('labor-hours').value;
   return Number(laborHoursInput);
@@ -44,8 +53,8 @@ class GetPrice {
     this.totalLaborRate = this.getTotalLaborRate();
     this.totalExpenses = this.getTotalExpenses();
     this.totalPricePreSalesTax = this.getPreSalesTaxPrice();
+    this.rate = this.getTaxRate();
     this.totalPriceWithSalesTaxAddedOn = this.applySalesTax();
-    this.rate = this.applySalesTax();
   }
 
   getTotalLaborRate() {
@@ -53,8 +62,6 @@ class GetPrice {
     labor.innerHTML += `<p>Total labor rate: ${this.laborHoursInput} hours at $${this.hourlyRateInput}/hour = $${totalLaborRate}.</p>`
     return Number(totalLaborRate);
   }
-
-  
 
   getTotalExpenses() {
     const totalExpenses = this.materialsCostInput + this.shippingCostInput;
@@ -68,17 +75,21 @@ class GetPrice {
     return Number(totalPricePreSalesTax);
   }
 
+  getTaxRate() {
+    const state = document.getElementById("states").value;
+    const rate = taxRates[state];
+    return Number(rate);
+  }
 
-  
   applySalesTax() {
-    const state = document.getElementById('states').value;
-    const rate = this.taxRates[state];
-    const totalPriceWithSalesTaxAddedOn = ((this.totalPricePreSalesTax * rate) + this.totalPricePreSalesTax);
+    
+    const totalPriceWithSalesTaxAddedOn = ((this.totalPricePreSalesTax * this.rate) + this.totalPricePreSalesTax);
     postTax.innerHTML += `<p>Total price, adding sales tax on : $${totalPriceWithSalesTaxAddedOn}</p>`
     console.log(totalPriceWithSalesTaxAddedOn)
     return Number(totalPriceWithSalesTaxAddedOn);
   }
 }
+
 
 const addMaterialsBtn = document.getElementById('add-materials-btn');
 const materialsName = document.getElementById('materials-name');
