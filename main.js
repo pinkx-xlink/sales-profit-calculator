@@ -12,7 +12,6 @@ const taxRates = {
   CA: 0.0725,
   // Add all other states and their tax rates here
 };
-
 function showTaxRate() {
   // const state = document.getElementById('states').value;
   //  const rate = this.taxRates[state];
@@ -38,10 +37,6 @@ function getShippingCostInput() {
   const shippingCostInput = document.getElementById('shipping-cost').value;
   return Number(shippingCostInput);
 }
-// function getSalesTaxInput() {
-//   const salesTaxInput = document.getElementById('sales-tax').value;
-//   return Number(salesTaxInput);
-// }
 
 class GetPrice {
   constructor(laborHoursInput, hourlyRateInput, materialsCostInput, shippingCostInput, totalLaborRate, totalExpenses, salesTaxInput, totalPricePreSalesTax, rate, totalPriceWithSalesTaxAddedOn) {
@@ -49,7 +44,6 @@ class GetPrice {
     this.hourlyRateInput = getHourlyRateInput();
     this.materialsCostInput = getMaterialsCostInput();
     this.shippingCostInput = getShippingCostInput();
-    //this.salesTaxInput = getSalesTaxInput();
     this.totalLaborRate = this.getTotalLaborRate();
     this.totalExpenses = this.getTotalExpenses();
     this.totalPricePreSalesTax = this.getPreSalesTaxPrice();
@@ -124,5 +118,3 @@ document.getElementById('submit-btn').addEventListener("click", function (event)
   need to charge $${newRate.totalPriceWithSalesTaxAddedOn} 
   total to account for shipping, materials, and sales taxes.</p>`;
 });
-
-
