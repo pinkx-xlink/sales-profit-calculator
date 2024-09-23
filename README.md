@@ -25,3 +25,6 @@ I plan on adding these helpful features:
 In conclusion, I think this project will be very helpful in my day-to-day life, which has made it very fun and fulfilling so far! It was also nice to brush up on Jest and run some tests on my modules before putting everything together. 
 
 To be continued ...
+
+9/23/24
+This morning I took a moment to fix the bugs with the sales tax rate dropdown menu. The 'total price after taxes' price is now accurate again (instead of 'NaN'). Now that that's working, time to add the rates for the rest of the states.
