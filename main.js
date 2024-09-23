@@ -5,11 +5,11 @@ const postTax = document.getElementById('post-tax');
 const totalPrice = document.getElementById('total-price');
 
 const taxRates = {
-  AL: 4.00,
+  AL: 0.04,
   AK: 0.00,
-  AZ: 5.60,
-  AR: 6.50,
-  CA: 7.25,
+  AZ: 0.056,
+  AR: 0.065,
+  CA: 0.0725,
   // Add all other states and their tax rates here
 };
 
