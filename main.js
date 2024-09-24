@@ -3,7 +3,7 @@ const expenses = document.getElementById('expenses');
 const preTax = document.getElementById('pre-tax');
 const postTax = document.getElementById('post-tax');
 const totalPrice = document.getElementById('total-price');
-
+// All US sales tax rates per state
 const taxRates = {
   AL: 0.04,
   AK: 0.00,
@@ -49,17 +49,14 @@ const taxRates = {
   TN: 0.07,
   TX: 0.06250,
   UT: 0.0485,
-  VT: 0.06, 
+  VT: 0.06,
   VA: 0.043,
   WA: 0.065,
   WV: 0.06,
   WI: 0.05,
   WY: 0.04,
-  // Add all other states and their tax rates here
 };
 function showTaxRate() {
-  // const state = document.getElementById('states').value;
-  //  const rate = this.taxRates[state];
   const state = document.getElementById("states").value;
   const rate = taxRates[state];
   document.getElementById("taxRate").innerText = `Sales Tax Rate: ${rate}%`;
@@ -121,7 +118,6 @@ class GetPrice {
   }
 
   applySalesTax() {
-    
     const totalPriceWithSalesTaxAddedOn = ((this.totalPricePreSalesTax * this.rate) + this.totalPricePreSalesTax);
     postTax.innerHTML += `<p>Total price, adding sales tax on : $${totalPriceWithSalesTaxAddedOn}</p>`
     console.log(totalPriceWithSalesTaxAddedOn)
@@ -137,13 +133,9 @@ const materialsPrice = document.getElementById('materials-price');
 const materialsPriceLabel = document.getElementById('materials-price-label');
 const submitMaterialsBtn = document.getElementById('submit-materials-btn');
 
-// make a constructor that takes the materials
-// product + price, creates a new item, 
-// and then totals all the prices up.
 const currentPrice = document.getElementById('current-price');
 submitMaterialsBtn.addEventListener('click', function (event) {
   event.preventDefault();
-  // currentPrice.innerHTML += 
 })
 
 addMaterialsBtn.addEventListener('click', function (event) {
